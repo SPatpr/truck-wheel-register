@@ -10,15 +10,32 @@
     <div class="login-container">
         <h1>Bejelentkezés</h1>
         <form>
-            <label for="username">Email:</label>
-            <input type="text" id="username" name="username" placeholder="Add meg a felhasználónevedet" required>
+            <input type="text" id="username" name="username" required>
+            <span>Email</span>
             
-            <label for="password">Jelszó:</label>
-            <input type="password" id="password" name="password" placeholder="Add meg a jelszavadat" required>
-            
+            <input type="password" id="password" name="password" required>
+            <span>Password</span>
+            <div id="toggle"></div>
+        
             <button type="submit">Belépés</button>
         </form>
         <p>Még nincs fiókod? <a href="registration.html">Regisztrálj itt!</a></p>
     </div>
+    <script>
+        let password = document.getElementById('password');
+        let togglePassword = document.getElementById('toggle');
+
+        function showHide(){
+            if(password.type === 'password'){
+                password.setAttribute('type', 'text');
+                togglePassword.classList.add('hide');
+            }else{
+                password.setAttribute('type', 'password');
+                togglePassword.classList.remove('hide');
+            }
+        }
+        togglePassword.addEventListener('click', showHide);
+
+    </script>
 </body>
 </html>
